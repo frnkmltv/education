@@ -6,10 +6,11 @@ from numpy import exp, sqrt
 
 import matplotlib.animation as animation
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 
 fig = plt.figure()
 fig.set_dpi(100)
-ax1 = fig.gca(projection='3d')
+axes = Axes3D(fig)
 
 x = np.linspace(-5, 5, 30)
 y = np.linspace(-5, 5, 30)
@@ -23,7 +24,7 @@ t0 = 0
 dt = 0.05
 
 # Initial temperature at (0,0) at t0=0
-T = 5
+T = 1
 
 # Sigma squared
 s = 2
@@ -52,13 +53,13 @@ def animate(i):
     global k
     temp = a[k]
     k += 1
-    ax1.clear()
-    ax1.plot_surface(X, Y, temp, rstride=1, cstride=1, cmap=plt.cm.jet, linewidth=0, antialiased=False)
+    axes.clear()
+    axes.plot_surface(X, Y, temp, rstride=1, cstride=1, cmap=plt.cm.jet, linewidth=0, antialiased=False)
 
     # ax1.contour(x,y,temp)
-    ax1.set_zlim(0, T)
-    ax1.set_xlim(-5, 5)
-    ax1.set_ylim(-5, 5)
+    axes.set_zlim(0, T)
+    axes.set_xlim(-5, 5)
+    axes.set_ylim(-5, 5)
 
 
 anim = animation.FuncAnimation(fig, animate, frames=220, interval=20)
