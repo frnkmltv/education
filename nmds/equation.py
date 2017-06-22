@@ -32,8 +32,8 @@ class Heat_Equation(object):
         # Now, set the initial conditions (ui).
         for i in range(self.nx):
             for j in range(self.ny):
-                p = self.a
-                if p <= 3.14 and p >= .0005:
+                p = i * self.dx + j * self.dy2
+                if p <= 0.01 and p >= .005:
                     ui[i, j] = 1
         return u, ui
 
@@ -61,7 +61,7 @@ class Heat_Equation(object):
 # In[5]:
 
 
-test_heat = Heat_Equation(0.001, 0.001, .5, 1)
+test_heat = Heat_Equation(0.01, 0.01, .5, 1)
 
 # First set up the figure, the axis, and the plot element we want to animate
 
