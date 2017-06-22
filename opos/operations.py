@@ -5,7 +5,6 @@ import os
 
 class Process:
     run = True
-    current_state = 'kuku'
 
     def __init__(self, filename, ask_delay=5):
         self.ask_delay = ask_delay
@@ -32,6 +31,7 @@ class Process:
         #         #     'wmic process where "name="%s"" get ExecutablePath' % self.filename).read()
         #         # print(os.popen(self.filename).read())
         #
+
 
 if __name__ == '__main__':
     process = Process('chrome.exe')
