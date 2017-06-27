@@ -25,11 +25,11 @@ class Philosopher(threading.Thread):
 
     def eating(self):
         print(u'Философ %s ест спагетти.' % self.name)
-        time.sleep(random.randint(3, self.max_time_for_eat))
+        time.sleep(random.randint(1, self.max_time_for_eat))
 
     def run(self):
         while self.running:
-            # time.sleep(random.randint(3, self.max_time_for_eat))
-            self.eat()
-            time.sleep(random.randint(5, self.max_time_for_eat + 3))
             print(u'Философ %s беседует.' % self.name)
+            # time.sleep(random.randint(3, self.max_time_for_eat))
+            time.sleep(random.randint(3, self.max_time_for_eat + 3))
+            self.eat()
