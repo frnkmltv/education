@@ -1,5 +1,5 @@
 import os
-
+import time
 
 class Process:
     def __init__(self, filename):
@@ -38,7 +38,7 @@ class Process:
             self.current_state["CPU Time"] = '-----'
             self.current_state["Mem Usage"] = '-----'
 
-
+        time.sleep(2)
             # else:
             #     if self.current_state['PID'] == None:
             #         pass

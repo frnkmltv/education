@@ -28,6 +28,8 @@ class GUI(tk.Frame):
         self.running = False
         self.stop_button.configure(command=self.on_closing, text='Exit')
         self.stop_button.grid_configure(row=2, column=1)
+        self.ask_button.configure(state=tk.NORMAL)
+        self.ask_button.grid_configure(row=2, column=0)
         self.second_thread.join(timeout=1)
 
     def __init__(self, master=master, size='450x300', running=False):
@@ -67,6 +69,8 @@ class GUI(tk.Frame):
             self.second_thread = threading.Thread(target=self.start_monitor, name='monitorthread')
             self.second_thread.daemon = True
             self.second_thread.start()
+            self.ask_button.configure(state=tk.DISABLED)
+            self.ask_button.grid_configure(row=2, column=0)
             self.stop_button.configure(command=self.stop_monitor, text='Stop')
             self.stop_button.grid_configure(row=2, column=1)
         else:
